@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scrolling-image-container {
+    overflow: hidden;
+}
+
+.scrolling-image {
+    background: url("./img/background-img.png") repeat-x;
+    background-size: contain;
+    height: 100vh;
+    width: 7680px;
+    animation: slide 8s linear infinite;
+}
+
+#board {
+    /* background-color: lightgray;
+    border-bottom: 1px solid black; */
+    position: absolute;
+}
+
+/* animations */
+    @keyframes slide {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(-3840px); 
+    }
+}
+
