@@ -22,8 +22,8 @@ let cat = {
 let yarnArray = [];
 
 let yarn1Width = 68;
-let yarn2Width = 89;
-let yarn3Width = 122;
+let yarn2Width = 99;
+let yarn3Width = 132;
 
 let yarnHeight = 70;
 let yarnX = 1500;
@@ -94,6 +94,7 @@ function update() {
         if (detectCollision(cat, yarnBall)) {
             gameOver = true;
             document.getElementById("scrolling-image").style.animation = "none";
+            alert("Game over! Press 'Enter' to reset.");
             document.addEventListener('keyup', function(e) {
               if (e.code == 'Enter') {
                   window.location.reload();
