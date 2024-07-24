@@ -8,7 +8,7 @@ let context;
 let catWidth = 118;  // 88
 let catHeight = 114; //94
 let catX = 50;
-let catY = boardHeight - catHeight;
+let catY = boardHeight - catHeight; // 515-114=401
 let catImg;
 
 let cat = {
@@ -27,7 +27,7 @@ let yarn3Width = 132;
 
 let yarnHeight = 70;
 let yarnX = 1500;
-let yarnY = boardHeight - yarnHeight;
+let yarnY = boardHeight - yarnHeight; 
 
 let yarn1Img;
 let yarn2Img;
@@ -67,7 +67,7 @@ window.onload = function () {
     yarn3Img.src = "./img/yarnBall3.png";
 
     requestAnimationFrame(update);
-    setInterval(playYarn, 1500);    // 1 second
+    setInterval(placeYarn, 1500);    // 1.5 second
     document.addEventListener("keydown", moveCat);
 }
 
@@ -94,12 +94,12 @@ function update() {
         if (detectCollision(cat, yarnBall)) {
             gameOver = true;
             document.getElementById("scrolling-image").style.animation = "none";
-            alert("Game over! Press 'Enter' to reset.");
-            document.addEventListener('keyup', function(e) {
-              if (e.code == 'Enter') {
-                  window.location.reload();
-              }
-            })
+              context.fillText("Game Over: 'Enter' to Restart", boardWidth/7, boardHeight*5/8);
+              document.addEventListener('keyup', function(e) {
+                  if (e.code == 'Enter') {
+                      window.location.reload();
+                  }
+                })
           }
     }
 
@@ -116,13 +116,14 @@ function moveCat(e) {
         return;
     }
 
-    if ((e.code == "Space" || e.code == "ArrowUp") && cat.y == cat.y) {
+    if ((e.code == "Space" || e.code == "ArrowUp") && cat.y == catY) {
         // jump
-        velocityY = -10;
+        velocityY = -11;
     }
+    
 }
 
-function playYarn() {
+function placeYarn() {
     // place yarn
     let yarnBall = {
         img: null,
@@ -153,7 +154,7 @@ function playYarn() {
   } 
 
   if (yarnArray.length > 5) {
-    yarnArray.shift();
+    yarnArray.shift();  // remove 1st element from array so it doesn't constantly grow
   }
 }
 

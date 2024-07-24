@@ -22,7 +22,7 @@ body {
     background: url("./img/background-img.png") repeat-x;
     background-size: contain;
     height: 100vh;
-    width: 7680px;
+    width: 7680px; 
     animation: slide 8s linear infinite;
 }
 
