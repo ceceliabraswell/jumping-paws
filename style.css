@@ -1,44 +1,42 @@
 * {
-    padding: 0;
     margin: 0;
-}
-
-body {
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-}
-
-.board-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.scrolling-image-container {
     overflow: hidden;
-}
-
-.scrolling-image {
-    background: url("./img/background-img.png") repeat-x;
-    background-size: contain;
+  }
+  
+  .scrolling-image-container {
+    display: flex;
+    width: 100%;
     height: 100vh;
-    width: 7680px; 
-    animation: slide 8s linear infinite;
-}
-
-#board {
-    /* background-color: lightgray;
-    border-bottom: 1px solid black; */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .scrolling-image {
+    flex: none;
+    width: 100vw;
+    height: 100vh;
+    background: url("./img/background-img.png") no-repeat bottom center;
+    background-size: cover;
+    animation: scroll-bg 5s linear infinite;
+  }
+  
+  #board {
     position: absolute;
-}
-
-/* animations */
-    @keyframes slide {
+    top: 0;
+    left: 0;
+  }
+    
+  @keyframes scroll-bg {
     0% {
-        transform: translate(0);
+      transform: translateX(0);
     }
     100% {
-        transform: translate(-3840px); 
+      transform: translateX(-100vw);
     }
-}
-
+  }
